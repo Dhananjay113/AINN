@@ -1,0 +1,4 @@
+Embedded Systems - Shape The World: Multi-Threaded Interfacing -edx
+IoT Sensors and Devices - edx
+Embedded Systems Essentials with Arm: Getting Started - edx
+Principle of Semiconductor Devices Part II: Field Effect Transistors and MOSFETs - edx

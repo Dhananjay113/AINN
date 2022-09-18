@@ -1,0 +1,5 @@
+Google AI for Anyone - edx
+CS50's Introduction to Artificial Intelligence with Python - edx
+Oxford Artificial Intelligence Programme - Oxford
+Algorithmic Design and Techniques - edx
+Algorithm Design and Analysis - edx
