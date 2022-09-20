@@ -7,10 +7,6 @@ pokemon = Tk()
 pokemon.geometry("500x500")
 #pokemon.configure(bg="Light Blue")
 
-'''
-q_frame = Frame(pokemon)
-q_frame.pack()
-'''
 
 pokemon.title("DJ's Course Recomendation System Ultra Pro Max")
 headding=Label(pokemon, text="Welcome Kodomo!", font=("Helvetica", 16))
@@ -32,16 +28,22 @@ degree.pack()
 
 
 def submit():
-    sub = Tk()
-    sub.geometry("500x500")
-    sub.configure(bg="Light Green")
+    qframe = Tk()
+    qframe.geometry("500x500")
+    qframe.configure(bg="Light Green")
     print(name.get(),degree.get())
+
+    qframe.title("Question Time")
+
+    lable = Label(qframe,text="Question Time",bg='Green')
+    lable.pack()
 
     pokemon.destroy()
 
 
-nxt_button = Button(pokemon,text="Submit",command=submit)
+nxt_button = Button(pokemon,text="submit",command=submit)
 nxt_button.pack()
+
 
 
 
