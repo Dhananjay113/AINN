@@ -50,11 +50,20 @@ def submit():
     qframe_subheadding = Label(qframe,text="Please answer the following questions:-",bg='Light Green',font=("Helvetica", 10))
     qframe_subheadding.pack()
     
+    ai = IntVar() 
+    semi = IntVar() 
+    eng = 0 
+    dss = 0
     
+        
     q1 = Label(qframe,text="What do you think is the Technology in-demand right now :-",bg="Light Green")
-    q1.pack()
+    q1.place(x=10,y=100)
+    q1_1 = Radiobutton(qframe,text="Ai",value=1,bg='Light Green',variable=ai,state= 'normal')
+    q1_1.place(x=10,y=120)
+    q1_2 = Radiobutton(qframe,text="Semiconductors",value=2,bg='Light Green',variable=ai, state='normal')
+    q1_2.place(x=10,y=140)
     
-   
+    #print(ai,semi)
 
     pokemon.destroy()
 
