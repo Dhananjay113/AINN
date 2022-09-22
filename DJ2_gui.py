@@ -1,6 +1,8 @@
 print("Jai Jagannath")
+from errno import ENOMSG
 import tkinter as tk
 from tkinter import*
+from turtle import goto
 #import tkinter as Tk
 
 pokemon = Tk()
@@ -50,20 +52,42 @@ def submit():
     qframe_subheadding = Label(qframe,text="Please answer the following questions:-",bg='Light Green',font=("Helvetica", 10))
     qframe_subheadding.pack()
     
-    ai = IntVar() 
-    semi = IntVar() 
+    
+    
+    ai = 0 
+    semi = 0
     eng = 0 
     dss = 0
     
+    question1 = IntVar()
+    question2 = IntVar()
+    question3 = IntVar()
+    question4 = IntVar()
+    question5 = IntVar()
+    
+    def add_ai():
+        ai = ai+1
+    def add_semi():
+        semi = semi+1
+    def add_eng():
+        eng = eng+1
+    def add_dss():
+       dss = dss+1
         
     q1 = Label(qframe,text="What do you think is the Technology in-demand right now :-",bg="Light Green")
     q1.place(x=10,y=100)
-    q1_1 = Radiobutton(qframe,text="Ai",value=1,bg='Light Green',variable=ai,state= 'normal')
+    q1_1 = Radiobutton(qframe,text="Ai",value=1,bg='Light Green',variable=question1,command=add_ai)
     q1_1.place(x=10,y=120)
-    q1_2 = Radiobutton(qframe,text="Semiconductors",value=2,bg='Light Green',variable=ai, state='normal')
+    q1_2 = Radiobutton(qframe,text="Semiconductors",value=2,bg='Light Green',variable=question1,command=add_semi)
     q1_2.place(x=10,y=140)
+    q1_3 = Radiobutton(qframe,text="Energy",value=3,bg='Light Green',variable=question1,command=add_eng)
+    q1_3.place(x=10,y=160)
+    q1_4 = Radiobutton(qframe,text="Data and Security",value=4,bg='Light Green',variable=question1,command=add_dss)
+    q1_4.place(x=10,y=180)
     
-    #print(ai,semi)
+    print(ai,dss,eng,semi)
+    
+    
 
     pokemon.destroy()
 
@@ -72,6 +96,7 @@ nxt_button = Button(pokemon,text="submit",command=submit)
 nxt_button.pack()
 
 
+    
 
 
 pokemon.mainloop()
