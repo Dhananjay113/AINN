@@ -6,7 +6,7 @@ import webbrowser
 
 
 pokemon = Tk()
-pokemon.geometry("1000x1000")
+pokemon.geometry("250x250")
 
 pokemon.title("DJ's Course Recomendation System Pro Max Ultima")
 headding=Label(pokemon, text="Welcome Student!", font=("Helvetica", 16))
@@ -61,6 +61,7 @@ def rotom():
     question6 = IntVar()
     question7 = IntVar()
     question8 = IntVar()
+    question9 = IntVar()
     
     def add_ai():
         global ai
@@ -170,6 +171,17 @@ def rotom():
     q8_4.place(x=400,y=400)
     
     
+    q9 = Label(pikachu,text="what programming language do you like:-",bg="Light Green")
+    q9.place(x=400,y=420)
+    q9_1 = Radiobutton(pikachu,text="C",value=5,bg='Light Green',variable=question9,command=add_semi)
+    q9_1.place(x=400,y=440)
+    q9_2 = Radiobutton(pikachu,text="PHP",value=6,bg='Light Green',variable=question9,command=add_dss)
+    q9_2.place(x=400,y=460)
+    q9_3 = Radiobutton(pikachu,text="Python",value=7,bg='Light Green',variable=question9,command=add_ai)
+    q9_3.place(x=400,y=480)
+    q9_4 = Radiobutton(pikachu,text="MatLab",value=8,bg='Light Green',variable=question9,command=add_eng)
+    q9_4.place(x=400,y=500)
+    
     def palkiya():
         global ai
         global semi
@@ -207,7 +219,7 @@ def rotom():
             dss_()
    
     pikachu_button = Button(pikachu,text="Submit",command=palkiya)
-    pikachu_button.place(x=100,y=600)
+    pikachu_button.place(x=350,y=600)
 
     pokemon.destroy()
 
