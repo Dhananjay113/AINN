@@ -128,6 +128,17 @@ def submit():
     q4_4 = Radiobutton(qframe,text="IBM",value=8,bg='Light Green',variable=question2,command=add_ai)
     q4_4.place(x=10,y=480)
    
+    q5 = Label(qframe,text="what would you do from the given options in your freetime :-",bg="Light Green")
+    q5.place(x=10,y=500)
+    q5_1 = Radiobutton(qframe,text="Cycle",value=5,bg='Light Green',variable=question2,command=add_eng)
+    q5_1.place(x=10,y=520)
+    q5_2 = Radiobutton(qframe,text="Code",value=6,bg='Light Green',variable=question2,command=add_ai)
+    q5_2.place(x=10,y=540)
+    q5_3 = Radiobutton(qframe,text="Play with PCBs",value=7,bg='Light Green',variable=question2,command=add_semi)
+    q5_3.place(x=10,y=560)
+    q5_4 = Radiobutton(qframe,text="Scout",value=8,bg='Light Green',variable=question2,command=add_dss)
+    q5_4.place(x=10,y=580)
+   
     
 
     pokemon.destroy()
