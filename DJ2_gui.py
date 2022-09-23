@@ -1,12 +1,10 @@
 print("Jai Jagannath")
-from errno import ENOMSG
+
 import tkinter as tk
 from tkinter import*
-from turtle import goto
-#import tkinter as Tk
 
 pokemon = Tk()
-pokemon.geometry("500x500")
+pokemon.geometry("1000x1000")
 #pokemon.configure(bg="Light Blue")
 
 '''
