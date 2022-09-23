@@ -58,6 +58,9 @@ def rotom():
     question3 = IntVar()
     question4 = IntVar()
     question5 = IntVar()
+    question6 = IntVar()
+    question7 = IntVar()
+    question8 = IntVar()
     
     def add_ai():
         global ai
@@ -133,8 +136,41 @@ def rotom():
     q5_4 = Radiobutton(pikachu,text="Scout",value=8,bg='Light Green',variable=question5,command=add_dss)
     q5_4.place(x=10,y=580)
     
+    q6 = Label(pikachu,text="what do you think from the following is great for our nation :-",bg="Light Green")
+    q6.place(x=400,y=100)
+    q6_1 = Radiobutton(pikachu,text="Strong Military",value=5,bg='Light Green',variable=question6,command=add_dss)
+    q6_1.place(x=400,y=120)
+    q6_2 = Radiobutton(pikachu,text="Independance from resource dependance",value=6,bg='Light Green',variable=question6,command=add_eng)
+    q6_2.place(x=400,y=140)
+    q6_3 = Radiobutton(pikachu,text="Recreate TSMC",value=7,bg='Light Green',variable=question6,command=add_semi)
+    q6_3.place(x=400,y=160)
+    q6_4 = Radiobutton(pikachu,text="Cyber supremacy",value=8,bg='Light Green',variable=question6,command=add_ai)
+    q6_4.place(x=400,y=180)
     
-    def charizard():
+    q7 = Label(pikachu,text="which the following fascinates you :-",bg="Light Green")
+    q7.place(x=400,y=220)
+    q7_1 = Radiobutton(pikachu,text="Aluminium",value=5,bg='Light Green',variable=question7,command=add_eng)
+    q7_1.place(x=400,y=240)
+    q7_2 = Radiobutton(pikachu,text="TRADIC ",value=6,bg='Light Green',variable=question7,command=add_semi)
+    q7_2.place(x=400,y=260)
+    q7_3 = Radiobutton(pikachu,text="Google Assistant",value=7,bg='Light Green',variable=question7,command=add_semi)
+    q7_3.place(x=400,y=280)
+    q7_4 = Radiobutton(pikachu,text="Cloud",value=8,bg='Light Green',variable=question7,command=add_dss)
+    q7_4.place(x=400,y=300)
+    
+    q8 = Label(pikachu,text="What movie you like :-",bg="Light Green")
+    q8.place(x=400,y=320)
+    q8_1 = Radiobutton(pikachu,text="Mortal Engins",value=5,bg='Light Green',variable=question8,command=add_eng)
+    q8_1.place(x=400,y=340)
+    q8_2 = Radiobutton(pikachu,text="MAtrix",value=6,bg='Light Green',variable=question8,command=add_dss)
+    q8_2.place(x=400,y=360)
+    q8_3 = Radiobutton(pikachu,text="G.I Joe",value=7,bg='Light Green',variable=question8,command=add_semi)
+    q8_3.place(x=400,y=380)
+    q8_4 = Radiobutton(pikachu,text="IROBO",value=8,bg='Light Green',variable=question8,command=add_ai)
+    q8_4.place(x=400,y=400)
+    
+    
+    def palkiya():
         global ai
         global semi
         global eng
@@ -170,7 +206,7 @@ def rotom():
             mitemasu.close()
             dss_()
    
-    pikachu_button = Button(pikachu,text="Submit",command=charizard)
+    pikachu_button = Button(pikachu,text="Submit",command=palkiya)
     pikachu_button.place(x=100,y=600)
 
     pokemon.destroy()
