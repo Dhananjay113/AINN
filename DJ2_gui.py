@@ -32,7 +32,10 @@ degree = Entry(pokemon)
 degree.pack()
 
 
-
+ai = 0
+semi = 0
+eng = 0
+dss = 0
 
 
 def submit():
@@ -54,10 +57,7 @@ def submit():
     
     
     
-    ai = 0 
-    semi = 0
-    eng = 0 
-    dss = 0
+    
     
     question1 = IntVar()
     question2 = IntVar()
@@ -66,13 +66,21 @@ def submit():
     question5 = IntVar()
     
     def add_ai():
+        global ai
         ai = ai+1
+        print(ai)
     def add_semi():
+        global semi
         semi = semi+1
+        print(semi)
     def add_eng():
+        global eng
         eng = eng+1
+        print(eng)
     def add_dss():
-       dss = dss+1
+        global dss
+        dss = dss+1
+        print(dss)
         
     q1 = Label(qframe,text="What do you think is the Technology in-demand right now :-",bg="Light Green")
     q1.place(x=10,y=100)
@@ -85,8 +93,41 @@ def submit():
     q1_4 = Radiobutton(qframe,text="Data and Security",value=4,bg='Light Green',variable=question1,command=add_dss)
     q1_4.place(x=10,y=180)
     
-    print(ai,dss,eng,semi)
     
+    q2 = Label(qframe,text="What do you think the government ahould invest on if it had 10 billion doller :-",bg="Light Green")
+    q2.place(x=10,y=200)
+    q2_1 = Radiobutton(qframe,text="Improve our military",value=5,bg='Light Green',variable=question2,command=add_dss)
+    q2_1.place(x=10,y=220)
+    q2_2 = Radiobutton(qframe,text="Do something to improve the income",value=6,bg='Light Green',variable=question2,command=add_eng)
+    q2_2.place(x=10,y=240)
+    q2_3 = Radiobutton(qframe,text="Invest in manufacturing",value=7,bg='Light Green',variable=question2,command=add_semi)
+    q2_3.place(x=10,y=260)
+    q2_4 = Radiobutton(qframe,text="have it as a back up",value=8,bg='Light Green',variable=question2,command=add_ai)
+    q2_4.place(x=10,y=280)
+    
+    
+    q3 = Label(qframe,text="Who do you like in thi list :-",bg="Light Green")
+    q3.place(x=10,y=300)
+    q3_1 = Radiobutton(qframe,text="Iscac Newton",value=5,bg='Light Green',variable=question2,command=add_ai)
+    q3_1.place(x=10,y=320)
+    q3_2 = Radiobutton(qframe,text="Gausess",value=6,bg='Light Green',variable=question2,command=add_eng)
+    q3_2.place(x=10,y=340)
+    q3_3 = Radiobutton(qframe,text="Ted Hoff",value=7,bg='Light Green',variable=question2,command=add_semi)
+    q3_3.place(x=10,y=360)
+    q3_4 = Radiobutton(qframe,text="Satoshi Nakamoto",value=8,bg='Light Green',variable=question2,command=add_ai)
+    q3_4.place(x=10,y=380)
+    
+    q4 = Label(qframe,text="Which of these companies do you like in this list :-",bg="Light Green")
+    q4.place(x=10,y=400)
+    q4_1 = Radiobutton(qframe,text="Google",value=5,bg='Light Green',variable=question2,command=add_ai)
+    q4_1.place(x=10,y=420)
+    q4_2 = Radiobutton(qframe,text="Tesla",value=6,bg='Light Green',variable=question2,command=add_eng)
+    q4_2.place(x=10,y=440)
+    q4_3 = Radiobutton(qframe,text="Intel",value=7,bg='Light Green',variable=question2,command=add_semi)
+    q4_3.place(x=10,y=460)
+    q4_4 = Radiobutton(qframe,text="IBM",value=8,bg='Light Green',variable=question2,command=add_ai)
+    q4_4.place(x=10,y=480)
+   
     
 
     pokemon.destroy()
