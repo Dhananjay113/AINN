@@ -8,19 +8,19 @@ import webbrowser
 pokemon = Tk()
 pokemon.geometry("1000x1000")
 
-pokemon.title("DJ's Course Recomendation System Ultra Pro Max")
-headding=Label(pokemon, text="Welcome Kodomo!", font=("Helvetica", 16))
+pokemon.title("DJ's Course Recomendation System Pro Max Ultima")
+headding=Label(pokemon, text="Welcome Student!", font=("Helvetica", 16))
 headding.pack()
 
 space = Label(pokemon, text=" ",font=("Helvetica", 20))
 space.pack()
 
-name_lable = Label(pokemon, text="Kodomo no namae:-",font=("Helvetica", 10))
+name_lable = Label(pokemon, text="Student Name:-",font=("Helvetica", 10))
 name_lable.pack()
 name = Entry(pokemon)
 name.pack()
 
-degree_lable = Label(pokemon, text="Kodomo no namae:-",font=("Helvetica", 10))
+degree_lable = Label(pokemon, text="Department:-",font=("Helvetica", 10))
 degree_lable.pack()
 degree = Entry(pokemon)
 degree.pack()
