@@ -138,8 +138,27 @@ def submit():
     q5_3.place(x=10,y=560)
     q5_4 = Radiobutton(qframe,text="Scout",value=8,bg='Light Green',variable=question2,command=add_dss)
     q5_4.place(x=10,y=580)
-   
     
+    
+    def pikachu():
+        if(ai>semi and ai>eng and ai>dss and ai>uf):
+            mitemasu = open(r'F:\Dhananjay\Coading\AINN\ai.txt', 'r')
+            print(mitemasu.read())
+            mitemasu.close()
+        elif (semi>ai and semi>eng and semi>dss and  semi>uf):
+            mitemasu = open(r'F:\Dhananjay\Coading\AINN\Embedded_systems.txt', 'r')    print(mitemasu.read())
+            mitemasu.close()
+        elif (eng>ai and eng>semi and eng>dss and eng>uf):
+            mitemasu = open(r'F:\Dhananjay\Coading\AINN\energy.txt', 'r')
+            print(mitemasu.read())
+            mitemasu.close()
+        elif (dss>ai and dss>semi and dss>eng and dss>uf):
+            mitemasu = open(r'F:\Dhananjay\Coading\AINN\data_security.txt', 'r')
+            print(mitemasu.read())
+            mitemasu.close()
+            
+   
+    pikachu_button = Button(qframe,text="Submit",command=pikachu)
 
     pokemon.destroy()
 
