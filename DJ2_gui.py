@@ -108,57 +108,63 @@ def submit():
     
     q3 = Label(qframe,text="Who do you like in thi list :-",bg="Light Green")
     q3.place(x=10,y=300)
-    q3_1 = Radiobutton(qframe,text="Iscac Newton",value=5,bg='Light Green',variable=question2,command=add_ai)
+    q3_1 = Radiobutton(qframe,text="Iscac Newton",value=5,bg='Light Green',variable=question3,command=add_ai)
     q3_1.place(x=10,y=320)
-    q3_2 = Radiobutton(qframe,text="Gausess",value=6,bg='Light Green',variable=question2,command=add_eng)
+    q3_2 = Radiobutton(qframe,text="Gausess",value=6,bg='Light Green',variable=question3,command=add_eng)
     q3_2.place(x=10,y=340)
-    q3_3 = Radiobutton(qframe,text="Ted Hoff",value=7,bg='Light Green',variable=question2,command=add_semi)
+    q3_3 = Radiobutton(qframe,text="Ted Hoff",value=7,bg='Light Green',variable=question3,command=add_semi)
     q3_3.place(x=10,y=360)
-    q3_4 = Radiobutton(qframe,text="Satoshi Nakamoto",value=8,bg='Light Green',variable=question2,command=add_ai)
+    q3_4 = Radiobutton(qframe,text="Satoshi Nakamoto",value=8,bg='Light Green',variable=question3,command=add_ai)
     q3_4.place(x=10,y=380)
     
     q4 = Label(qframe,text="Which of these companies do you like in this list :-",bg="Light Green")
     q4.place(x=10,y=400)
-    q4_1 = Radiobutton(qframe,text="Google",value=5,bg='Light Green',variable=question2,command=add_ai)
+    q4_1 = Radiobutton(qframe,text="Google",value=5,bg='Light Green',variable=question4,command=add_ai)
     q4_1.place(x=10,y=420)
-    q4_2 = Radiobutton(qframe,text="Tesla",value=6,bg='Light Green',variable=question2,command=add_eng)
+    q4_2 = Radiobutton(qframe,text="Tesla",value=6,bg='Light Green',variable=question4,command=add_eng)
     q4_2.place(x=10,y=440)
-    q4_3 = Radiobutton(qframe,text="Intel",value=7,bg='Light Green',variable=question2,command=add_semi)
+    q4_3 = Radiobutton(qframe,text="Intel",value=7,bg='Light Green',variable=question4,command=add_semi)
     q4_3.place(x=10,y=460)
-    q4_4 = Radiobutton(qframe,text="IBM",value=8,bg='Light Green',variable=question2,command=add_ai)
+    q4_4 = Radiobutton(qframe,text="IBM",value=8,bg='Light Green',variable=question4,command=add_ai)
     q4_4.place(x=10,y=480)
    
     q5 = Label(qframe,text="what would you do from the given options in your freetime :-",bg="Light Green")
     q5.place(x=10,y=500)
-    q5_1 = Radiobutton(qframe,text="Cycle",value=5,bg='Light Green',variable=question2,command=add_eng)
+    q5_1 = Radiobutton(qframe,text="Cycle",value=5,bg='Light Green',variable=question5,command=add_eng)
     q5_1.place(x=10,y=520)
-    q5_2 = Radiobutton(qframe,text="Code",value=6,bg='Light Green',variable=question2,command=add_ai)
+    q5_2 = Radiobutton(qframe,text="Code",value=6,bg='Light Green',variable=question5,command=add_ai)
     q5_2.place(x=10,y=540)
-    q5_3 = Radiobutton(qframe,text="Play with PCBs",value=7,bg='Light Green',variable=question2,command=add_semi)
+    q5_3 = Radiobutton(qframe,text="Play with PCBs",value=7,bg='Light Green',variable=question5,command=add_semi)
     q5_3.place(x=10,y=560)
-    q5_4 = Radiobutton(qframe,text="Scout",value=8,bg='Light Green',variable=question2,command=add_dss)
+    q5_4 = Radiobutton(qframe,text="Scout",value=8,bg='Light Green',variable=question5,command=add_dss)
     q5_4.place(x=10,y=580)
     
     
     def pikachu():
-        if(ai>semi and ai>eng and ai>dss and ai>uf):
-            mitemasu = open(r'F:\Dhananjay\Coading\AINN\ai.txt', 'r')
+        global ai
+        global semi
+        global eng
+        global dss
+        if(ai>semi and ai>eng and ai>dss ):
+            mitemasu = open(r'C:\Users\student\Desktop\TOP SECRET\ai.txt', 'r')
             print(mitemasu.read())
             mitemasu.close()
-        elif (semi>ai and semi>eng and semi>dss and  semi>uf):
-            mitemasu = open(r'F:\Dhananjay\Coading\AINN\Embedded_systems.txt', 'r')    print(mitemasu.read())
-            mitemasu.close()
-        elif (eng>ai and eng>semi and eng>dss and eng>uf):
-            mitemasu = open(r'F:\Dhananjay\Coading\AINN\energy.txt', 'r')
+        elif (semi>ai and semi>eng and semi>dss ):
+            mitemasu = open(r'C:\Users\student\Desktop\TOP SECRET\semi.txt', 'r')    
             print(mitemasu.read())
             mitemasu.close()
-        elif (dss>ai and dss>semi and dss>eng and dss>uf):
-            mitemasu = open(r'F:\Dhananjay\Coading\AINN\data_security.txt', 'r')
+        elif (eng>ai and eng>semi and eng>dss ):
+            mitemasu = open(r'C:\Users\student\Desktop\TOP SECRET\eng.txt', 'r')
+            print(mitemasu.read())
+            mitemasu.close()
+        elif (dss>ai and dss>semi and dss>eng):
+            mitemasu = open(r'C:\Users\student\Desktop\TOP SECRET\dss.txt', 'r')
             print(mitemasu.read())
             mitemasu.close()
             
    
     pikachu_button = Button(qframe,text="Submit",command=pikachu)
+    pikachu_button.place(x=50,y=600)
 
     pokemon.destroy()
 
