@@ -1,6 +1,5 @@
 print("Jai Jagannath")
 
-import tkinter as tk
 from tkinter import*
 import webbrowser
 
@@ -32,7 +31,7 @@ eng = 0
 dss = 0
 
 
-def rotom():
+def dealga():
     pikachu = Tk()
     pikachu.geometry("750x750")
     pikachu.configure(bg="Light Green")
@@ -212,7 +211,7 @@ def rotom():
     pokemon.destroy()
 
 
-nxt_button = Button(pokemon,text="submit",command=rotom)
+nxt_button = Button(pokemon,text="submit",command=dealga)
 nxt_button.pack()
 
 
