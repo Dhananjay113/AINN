@@ -1,0 +1,64 @@
+
+'''First, you will need to import the necessary libraries, 
+including pandas for reading and manipulating the data, 
+numpy for numerical operations, sklearn for training and evaluating the model,
+and matplotlib for plotting the graph.'''
+
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.neural_network import MLPRegressor
+import matplotlib.pyplot as plt
+
+
+#Next, read the CSV data into a pandas DataFrame using the read_csv function.
+
+df = pd.read_csv('data.csv')
+
+#Separate the input features and target variables by selecting the appropriate columns from the DataFrame.
+
+X = df.iloc[:, :-1]
+y = df.iloc[:, -1]
+
+#Split the data into training and testing sets using the train_test_split function from sklearn.
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+#Scale the input features using the StandardScaler from sklearn. This is important because the 
+# radial bias function is sensitive to the scale of the input features.
+
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+
+'''Create an instance of the MLPRegressor class from sklearn, 
+which implements a radial bias function neural network.
+Set the hidden_layer_sizes parameter to the desired number of neurons in the hidden layer,
+and the max_iter parameter to the maximum number of iterations to use during training.'''
+
+model = MLPRegressor(hidden_layer_sizes=(10,), max_iter=1000)
+
+#Train the model on the training data using the fit method.
+
+model.fit(X_train, y_train)
+
+#Evaluate the model's performance on the test data using the score method,
+#which returns the coefficient of determination (R^2) of the prediction.
+
+accuracy = model.score(X_test, y_test)
+print('Accuracy:', accuracy)
+
+'''To plot the graph of the model's prediction, 
+you can use the predict method to generate predictions for a range of input values 
+and then plot the resulting values using matplotlib.'''
+
+x_pred = np.linspace(X.min(), X.max(), 100)
+y_pred = model.predict(x_pred)
+
+plt.scatter(X, y, label='Actual')
+plt.plot(x_pred, y_pred, label='Prediction')
+plt.legend()
+plt.show()
+
+
