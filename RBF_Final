@@ -1,12 +1,18 @@
 
 from keras import backend as K
-from keras.engine.topology import Layer
+from keras.layers import Layer
 from keras.initializers import RandomUniform, Initializer, Constant
 import numpy as np
 
 
 class InitCentersRandom(Initializer):
-   
+    """ Initializer for initialization of centers of RBF network
+        as random samples from the given data set.
+    # Arguments
+        X: matrix, dataset to choose the centers from (random rows
+          are taken as centers)
+    """
+
     def __init__(self, X):
         self.X = X
 
@@ -17,7 +23,23 @@ class InitCentersRandom(Initializer):
 
 
 class RBFLayer(Layer):
-   
+    """ Layer of Gaussian RBF units.
+    # Example
+    ```python
+        model = Sequential()
+        model.add(RBFLayer(10,
+                           initializer=InitCentersRandom(X),
+                           betas=1.0,
+                           input_shape=(1,)))
+        model.add(Dense(1))
+    ```
+    # Arguments
+        output_dim: number of hidden units (i.e. number of outputs of the
+                    layer)
+        initializer: instance of initiliazer to initialize centers
+        betas: float, initial value for betas
+    """
+
     def __init__(self, output_dim, initializer=None, betas=1.0, **kwargs):
         self.output_dim = output_dim
         self.init_betas = betas
@@ -48,11 +70,18 @@ class RBFLayer(Layer):
         H = K.transpose(C-K.transpose(x))
         return K.exp(-self.betas * K.sum(H**2, axis=1))
 
+        # C = self.centers[np.newaxis, :, :]
+        # X = x[:, np.newaxis, :]
+
+        # diffnorm = K.sum((C-X)**2, axis=-1)
+        # ret = K.exp( - self.betas * diffnorm)
+        # return ret
 
     def compute_output_shape(self, input_shape):
         return (input_shape[0], self.output_dim)
 
     def get_config(self):
+        # have to define get_config to be able to use model_from_json
         config = {
             'output_dim': self.output_dim
         }
@@ -64,7 +93,12 @@ from sklearn.cluster import KMeans
 
 
 class InitCentersKMeans(Initializer):
-   
+    """ Initializer for initialization of centers of RBF network
+        by clustering the given data set.
+    # Arguments
+        X: matrix, dataset
+    """
+
     def __init__(self, X, max_iter=100):
         self.X = X
         self.max_iter = max_iter
@@ -77,7 +111,7 @@ class InitCentersKMeans(Initializer):
         km.fit(self.X)
         return km.cluster_centers_
 
-
+# Commented out IPython magic to ensure Python compatibility.
 import numpy as np, pandas as pd
 from keras.models import Sequential 
 from keras.layers.core import Dense
@@ -87,7 +121,7 @@ import matplotlib.pyplot as plt
 
 
 
-data = pd.read_csv('olive.csv',header=None)
+data = pd.read_csv('data.csv',header=None)
 data.head(10) #Return 10 rows of data
 
 datatrans=np.transpose(data)
@@ -152,9 +186,14 @@ plt.xlabel('Epoch')
 plt.legend(['accuracy', 'loss'], loc='upper left')
 plt.show()
 
+# # saving to and loading from file
+# z_model = f"Z_model.h5"
+# print(f"Save model to file {z_model} ... ", end="")
+# model.save(z_model)
+# print("OK")
 
 #model already saved in file
-from tensorflow.keras.models import  load_model
+from keras.models import  load_model
 newmodel1= load_model("Zoghbio.h5",
                           custom_objects={'RBFLayer': RBFLayer})
 print("OK")
@@ -165,3 +204,16 @@ results = newmodel1.evaluate(X_test, y_test, batch_size=32)
 print("test loss:", results[0])
 print("test accuracy:",results[1]*100,'%')
 
+# y_pred = newmodel1.predict(X_test)
+# #Converting predictions to label
+# pred = list()
+# for i in range(len(y_pred)):
+#     pred.append(np.argmax(y_pred[i]))
+# #Converting one hot encoded test label to label
+# test = list()
+# for i in range(len(y_test)):
+#     test.append(np.argmax(y_test[i]))
+
+# from sklearn.metrics import accuracy_score
+# a = accuracy_score(pred,test)
+# print('Test Accuracy is:', a*100)
